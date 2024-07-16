@@ -1088,6 +1088,7 @@ class AssignmentsController < ApplicationController
                   :hide_in_gradebook,
                   :intra_group_peer_reviews,
                   :important_dates,
+                  :ommited_from_late_policy,
                   allowed_extensions: strong_anything,
                   turnitin_settings: strong_anything,
                   integration_data: strong_anything)

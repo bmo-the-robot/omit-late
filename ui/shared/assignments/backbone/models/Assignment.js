@@ -169,6 +169,7 @@ function Assignment() {
   this.notifyOfUpdate = this.notifyOfUpdate.bind(this)
   this.objectType = this.objectType.bind(this)
   this.omitFromFinalGrade = this.omitFromFinalGrade.bind(this)
+  this.ommittedFromLatePolicy = this.ommittedFromLatePolicy.bind(this)
   this.originalAssignmentID = this.originalAssignmentID.bind(this)
   this.originalAssignmentName = this.originalAssignmentName.bind(this)
   this.originalCourseID = this.originalCourseID.bind(this)
@@ -426,6 +427,13 @@ Assignment.prototype.omitFromFinalGrade = function (omitFromFinalGradeBoolean) {
     return this.get('omit_from_final_grade')
   }
   return this.set('omit_from_final_grade', omitFromFinalGradeBoolean)
+}
+
+Assignment.prototype.ommittedFromLatePolicy = function (ommittedFromLatePolicyBoolean) {
+  if (!(arguments.length > 0)) {
+    return this.get('ommited_from_late_policy')
+  }
+  return this.set('ommited_from_late_policy', ommittedFromLatePolicyBoolean)
 }
 
 Assignment.prototype.hideInGradebook = function (hideInGradebookBoolean) {
@@ -1277,6 +1285,7 @@ Assignment.prototype.toView = function () {
     'notifyOfUpdate',
     'objectTypeDisplayName',
     'omitFromFinalGrade',
+    'ommittedFromLatePolicy',
     'originalAssignmentName',
     'peerReviewCount',
     'peerReviews',

@@ -60,6 +60,7 @@ class AbstractAssignment < ActiveRecord::Base
     grader_comments_visible_to_graders
     graders_anonymous_to_graders
     anonymous_instructor_annotations
+    ommited_from_late_policy
   ].freeze
 
   DEFAULT_POINTS_POSSIBLE = 0
@@ -1076,6 +1077,7 @@ class AbstractAssignment < ActiveRecord::Base
       muted
       intra_group_peer_reviews
       anonymous_grading
+      ommited_from_late_policy
     ].each { |attr| self[attr] = false if self[attr].nil? }
     self.graders_anonymous_to_graders = false unless grader_comments_visible_to_graders
   end

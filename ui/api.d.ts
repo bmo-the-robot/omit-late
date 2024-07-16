@@ -211,6 +211,7 @@ export type Assignment = Readonly<{
   muted: boolean
   name: string
   omit_from_final_grade: boolean
+  ommited_from_late_policy: boolean
   only_visible_to_overrides: boolean
   original_assignment_id: null | string
   original_assignment_name: null | string

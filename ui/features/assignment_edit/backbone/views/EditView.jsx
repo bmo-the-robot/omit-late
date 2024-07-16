@@ -113,6 +113,7 @@ const ANONYMOUS_GRADING_BOX = '#assignment_anonymous_grading'
 const HIDE_ZERO_POINT_QUIZZES_BOX = '#assignment_hide_in_gradebook'
 const HIDE_ZERO_POINT_QUIZZES_OPTION = '#assignment_hide_in_gradebook_option'
 const OMIT_FROM_FINAL_GRADE_BOX = '#assignment_omit_from_final_grade'
+const OMMITED_FROM_LATE_POLICY_BOX = '#assignment_ommited_from_late_policy'
 const ASSIGNMENT_EXTERNAL_TOOLS = '#assignment_external_tools'
 const USAGE_RIGHTS_CONTAINER = '#annotated_document_usage_rights_container'
 const USAGE_RIGHTS_SELECTOR = '#usageRightSelector'
@@ -257,6 +258,7 @@ EditView.prototype.els = {
     els['' + HIDE_ZERO_POINT_QUIZZES_BOX] = '$hideZeroPointQuizzesBox'
     els['' + HIDE_ZERO_POINT_QUIZZES_OPTION] = '$hideZeroPointQuizzesOption'
     els['' + OMIT_FROM_FINAL_GRADE_BOX] = '$omitFromFinalGradeBox'
+    els['' + OMMITED_FROM_LATE_POLICY_BOX] = '$ommitedFromLatePolicyBox' 
     return els
   })(),
 }
@@ -412,7 +414,8 @@ EditView.prototype.checkboxAccessibleAdvisory = function (box) {
     box === this.$peerReviewsBox ||
     box === this.$groupCategoryBox ||
     box === this.$anonymousGradingBox ||
-    box === this.$omitFromFinalGradeBox
+    box === this.$omitFromFinalGradeBox||
+    box === this.$ommitedFromLatePolicyBox
       ? ''
       : 'screenreader-only'
   advisory = label.find('div.accessible_label')
@@ -510,6 +513,7 @@ EditView.prototype.handleAnonymousGradingChange = function () {
 EditView.prototype.handleHideZeroPointQuizChange = function () {
   if (this.$hideZeroPointQuizzesBox.prop('checked')) {
     this.$omitFromFinalGradeBox.prop('checked', true)
+    this.$ommitedFromLatePolicyBox.prop('checked',true)
     return this.disableCheckbox(
       this.$omitFromFinalGradeBox,
       I18n.t(
@@ -517,6 +521,7 @@ EditView.prototype.handleHideZeroPointQuizChange = function () {
       )
     )
   } else {
+    this.enableCheckbox(this.$ommitedFromLatePolicyBox)
     return this.enableCheckbox(this.$omitFromFinalGradeBox)
   }
 }

@@ -63,6 +63,7 @@ module Api::V1::Assignment
       moderated_grading
       hide_in_gradebook
       omit_from_final_grade
+      ommited_from_late_policy
       anonymous_instructor_annotations
       anonymous_grading
       allowed_attempts
@@ -186,6 +187,7 @@ module Api::V1::Assignment
     end
 
     hash["omit_from_final_grade"] = assignment.omit_from_final_grade?
+    hash["ommited_from_late_policy"] = assignment.ommited_from_late_policy?
 
     hash["hide_in_gradebook"] = assignment.hide_in_gradebook?
 
@@ -540,6 +542,7 @@ module Api::V1::Assignment
     integration_id
     hide_in_gradebook
     omit_from_final_grade
+    ommited_from_late_policy
     anonymous_instructor_annotations
     allowed_attempts
     important_dates

@@ -261,6 +261,7 @@ module CC
                 grade_group_students_individually
                 freeze_on_copy
                 omit_from_final_grade
+                ommited_from_late_policy
                 hide_in_gradebook
                 intra_group_peer_reviews
                 only_visible_to_overrides

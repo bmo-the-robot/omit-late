@@ -116,6 +116,26 @@
         {{#t}}Do not count this assignment towards the final grade{{/t}}
       </label>
     </div>
+    
+    {{!-- TO-DO: Needs updating so they aren't next to each other--}}
+    <div id="omitted-from-late-policy" class="form-column-right" style="margin-top: 14px;">
+      <label class="checkbox">
+        {{#if inClosedGradingPeriod}}
+          {{checkbox "ommittedFromLatePolicy"
+            id="assignment_ommited_from_late_policy"
+            name="ommited_from_late_policy"
+            readonly="readonly"
+            aria-readonly="true"
+          }}
+        {{else}}
+          {{checkbox "ommittedFromLatePolicy"
+            id="assignment_ommited_from_late_policy"
+            name="ommited_from_late_policy"
+          }}
+        {{/if}}
+        {{#t}}Omit from late policy{{/t}}
+      </label>
+    </div>
     {{#if hideZeroPointQuizzesOptionEnabled}}
       {{#if isQuizLTIAssignment}}
           <div id="assignment_hide_in_gradebook_option">
